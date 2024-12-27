@@ -1,5 +1,6 @@
 // import React from 'react'
 import calendar from '../assets/calendar.png'
+import TodoItems from './TodoItems'
 
 const Todo = () => {
   return (
@@ -16,15 +17,23 @@ const Todo = () => {
 
       <div className="flex items-center justify-center gap-2 mt-7">
         <img className='w-9' src={calendar} alt="" />
-        <h1 className="text-3xl font-semibold text-gray-200">To-Do List</h1>
+        <h1 className="text-3xl font-semibold text-gray-300">To-Do List</h1>
       </div>
 
     {/* ----- input box ----- */}
 
-      <div className='flex items-center bg-gray-200 rounded-full my-7'>
-        <input className='flex-1 pl-16 pr-2 bg-transparent border-0 outline-none h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
-        <button className='w-32 text-lg font-medium text-white bg-blue-700 border-none rounded-full cursor-pointer h-14'>ADD +</button>
+      <div className='flex items-center my-6 bg-gray-200 border-2 border-blue-600 border-solid rounded-full '>
+        <input className='flex-1 pl-16 pr-2 bg-transparent rounded-full outline-none h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
+        <button className='w-32 text-lg font-medium text-white bg-blue-600 border-none rounded-full cursor-pointer h-14'>ADD +</button>
       </div>
+
+    {/* ----- Todo List ----- */}
+
+    <div>
+      <TodoItems text='Learning Code'/>
+      <TodoItems text='Learning Code Start'/>
+    </div>
+
 
 
 
