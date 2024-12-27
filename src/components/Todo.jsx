@@ -4,13 +4,19 @@ import calendar from '../assets/calendar.png'
 const Todo = () => {
   return (
     <>
-    <div className="bg-white place-self-center w-11/12 flex flex-col max-w-md p-7 min-h-[550px] rounded-xl">
+    <div className="backdrop-blur-2xl shadow-md bg-slate-500/30 place-self-center w-11/12 flex flex-col max-w-md p-7 min-h-[550px] rounded-xl">
+
+    <div className='flex items-center gap-2'>
+      <div className='w-3 h-3 bg-[#FF605C] rounded-full'></div>
+      <div className='w-3 h-3 bg-[#FFBD44] rounded-full'></div>
+      <div className='w-3 h-3 bg-[#00CA4E] rounded-full'></div>
+    </div>
 
     {/* ----- title ----- */}
 
       <div className="flex items-center justify-center gap-2 mt-7">
         <img className='w-9' src={calendar} alt="" />
-        <h1 className="text-3xl font-semibold">To-Do List</h1>
+        <h1 className="text-3xl font-semibold text-gray-200">To-Do List</h1>
       </div>
 
     {/* ----- input box ----- */}
