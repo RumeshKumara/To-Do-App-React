@@ -1,8 +1,17 @@
-// import React from 'react'
+import {useRef} from 'react'
 import calendar from '../assets/calendar.png'
 import TodoItems from './TodoItems'
 
 const Todo = () => {
+
+  const inputRef = useRef();
+
+  const add = () => {
+    const inputText = inputRef.current.value;
+    console.log(inputText);
+    
+
+  }
   return (
     <>
     <div className="backdrop-blur-2xl shadow-md bg-slate-500/30 place-self-center w-11/12 flex flex-col max-w-md p-7 min-h-[550px] rounded-xl">
@@ -23,7 +32,7 @@ const Todo = () => {
     {/* ----- input box ----- */}
 
       <div className='flex items-center my-6 bg-gray-200 border-2 border-blue-600 border-solid rounded-full '>
-        <input className='flex-1 pl-16 pr-2 bg-transparent rounded-full outline-none h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
+        <input ref={inputRef} className='flex-1 pl-16 pr-2 bg-transparent rounded-full outline-none h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
         <button className='w-32 text-lg font-medium text-white bg-blue-600 border-none rounded-full cursor-pointer h-14'>ADD +</button>
       </div>
 
