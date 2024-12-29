@@ -5,7 +5,7 @@ import trash from '../assets/trash.png';
 import PropTypes from 'prop-types';
 
 
-const TodoItems = ({text}) => {
+const TodoItems = ({text, id, isComplete, deleteTodo}) => {
   return (
     <>
     <div className="flex items-center gap-2 my-3">
@@ -16,7 +16,7 @@ const TodoItems = ({text}) => {
             </p>
         </div>
 
-        <img className='w-5' src={trash} alt="" />
+        <img onClick={()=>{deleteTodo(id)}} className='w-5' src={trash} alt="" />
       
     </div>
     <hr className='my-4 border-t-2 border-gray-500' />
@@ -25,7 +25,10 @@ const TodoItems = ({text}) => {
 }
 
 TodoItems.propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    isComplete: PropTypes.bool,
+    deleteTodo: PropTypes.func.isRequired,
 }
 
 export default TodoItems
