@@ -33,7 +33,7 @@ const Todo = () => {
 
   const toggle = (id) => {
     setTodoList((prvTodos)=>{
-      return prvTod.map((todo) =>{
+      return prvTodos.map((todo) =>{
         if(todo.id === id){
           return {...todo, isComplete: !todo.isComplete}
         }
