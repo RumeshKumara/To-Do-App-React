@@ -1,16 +1,16 @@
 // import React from 'react'
 import check from '../assets/check.png';
-// import record-button from '../assets/record-button.png';
+import recordButton from '../assets/recordButton.png';
 import trash from '../assets/trash.png';
 import PropTypes from 'prop-types';
 
 
-const TodoItems = ({text, id, isComplete, deleteTodo}) => {
+const TodoItems = ({text, id, isComplete, deleteTodo, toggle}) => {
   return (
     <>
     <div className="flex items-center gap-2 my-3">
-        <div className='flex items-center flex-1 cursor-pointer'>
-            <img className='w-7' src={check} alt="" />
+        <div onClick={()=>{toggle(id)}} className='flex items-center flex-1 cursor-pointer'>
+            <img className='w-7' src={isComplete ? check : recordButton} alt="" />
             <p className='text-slate-200 ml-4 text[17px]'>
                 {text}
             </p>
@@ -29,6 +29,7 @@ TodoItems.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     isComplete: PropTypes.bool,
     deleteTodo: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired,
 }
 
 export default TodoItems
