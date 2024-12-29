@@ -8,6 +8,9 @@ function App() {
 
 
     <Todo/>
+    <div className="fixed bottom-0 right-0 m-4 md:m-6 lg:m-8">
+      <h3 className="text-slate-300"><span className="text-lg font-bold text-purple-500">#</span>Rumesh</h3>
+    </div>
     </div>
     </>
   )
