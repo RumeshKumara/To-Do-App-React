@@ -1,14 +1,28 @@
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 import calendar from '../assets/calendar.png'
 import TodoItems from './TodoItems'
 
 const Todo = () => {
 
+  const [todoList, setTodoList] = useState([]);
+
   const inputRef = useRef();
 
   const add = () => {
-    const inputText = inputRef.current.value;
-    console.log(inputText);
+    const inputText = inputRef.current.value.trim();
+
+    if(inputText === "") {
+      return null;
+    }
+
+    const newTodo = {
+      id: Date.now(),
+      text: inputText,
+      completed: false
+    }
+    setTodoList((prev) => [...prev, newTodo]);
+    inputRef.current.value = "";
+
     
 
   }
@@ -33,14 +47,19 @@ const Todo = () => {
 
       <div className='flex items-center my-6 bg-gray-200 border-2 border-blue-600 border-solid rounded-full '>
         <input ref={inputRef} className='flex-1 pl-16 pr-2 bg-transparent rounded-full outline-none h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
-        <button className='w-32 text-lg font-medium text-white bg-blue-600 border-none rounded-full cursor-pointer h-14'>ADD +</button>
+        <button onClick={add} className='w-32 text-lg font-medium text-white bg-blue-600 border-none rounded-full cursor-pointer h-14'>ADD +</button>
       </div>
 
     {/* ----- Todo List ----- */}
 
     <div>
-      <TodoItems text='Learning Code'/>
-      <TodoItems text='Learning Code Start'/>
+      {todoList.map((item, index) => {
+        return (
+          <TodoItems key={index} text={item.text}/>
+        )
+
+      })}
+      
     </div>
 
 
