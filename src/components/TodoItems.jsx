@@ -19,9 +19,9 @@ const TodoItems = ({text, id, isComplete, deleteTodo, toggle}) => {
             
            
         </div>
-        <img className='w-5 sm:w-4 md:w-6' src={edit} alt="" />
+        <img className='w-5 sm:w-4 md:w-5' src={edit} alt="" />
 
-        <img onClick={()=>{deleteTodo(id)}} className='w-5 sm:w-4 md:w-6' src={trash} alt="" />
+        <img onClick={()=>{deleteTodo(id)}} className='w-5 sm:w-4 md:w-5' src={trash} alt="" />
       
     </div>
     <hr className='my-4 border-t-2 border-gray-500' />
