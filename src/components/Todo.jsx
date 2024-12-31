@@ -1,12 +1,20 @@
-import {useRef, useState, useEffect} from 'react'
-import calendar from '../assets/calendar.png'
-import TodoItems from './TodoItems'
+import {useRef, useState, useEffect} from 'react';
+import calendar from '../assets/calendar.png';
+import TodoItems from './TodoItems';
 
 const Todo = () => {
 
-  const [todoList, setTodoList] = useState(localStorage.getItem("todos")? JSON.parse(localStorage.getItem("todos")) : []);
+  
+
+  const [todoList, setTodoList] = useState(localStorage.getItem("todos")? JSON.parse(localStorage.getItem("todos")) : [],
+ [
+  { id: 1, text: 'Task 1', isComplete: false },
+  { id: 2, text: 'Task 2', isComplete: true },
+ ]);
 
   const inputRef = useRef();
+
+  
 
   const add = () => {
     const inputText = inputRef.current.value.trim();
@@ -41,6 +49,7 @@ const Todo = () => {
       })
     })
   }
+  const completedCount = todoList.filter((todo) => todo.isComplete).length;
 
   useEffect(()=>{
     localStorage.setItem("todos", JSON.stringify(todoList));
@@ -65,18 +74,29 @@ const Todo = () => {
 
     {/* ----- input box ----- */}
 
-      <div className='flex items-center my-6 bg-gray-200 border-2 border-blue-600 border-solid rounded-full '>
-        <input ref={inputRef} className='flex-1 pl-16 pr-2 bg-transparent rounded-full outline-none h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
+      <div className='flex items-center my-6 bg-gray-200 border-2 border-blue-600 border-solid rounded-xl '>
+        <input ref={inputRef} className='flex-1 pl-16 pr-2 bg-transparent outline-none rounded-xl h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
         <button onClick={add} className='w-32 text-lg font-medium text-white bg-blue-600 border-none rounded-full cursor-pointer h-14'>ADD +</button>
+      </div>
+      <div className='flex items-center justify-between pb-2'>
+      <p className="text-sm font-semibold text-center text-sky-500">Total Tasks: <span className='px-3 py-1 rounded-full text-sky-400 bg-slate-700'>{todoList.length}</span></p>
+      <p className="font-sans text-sm font-semibold text-center text-green-500">Completed Tasks: <span className="px-3 py-1 text-green-500 rounded-full bg-slate-700">{completedCount}</span></p>
       </div>
 
     {/* ----- Todo List ----- */}
 
     <div>
+      
       {todoList.map((item, index) => {
         return (
-          <TodoItems key={index} text={item.text} id={item.id}
-          isComplete={item.isComplete} deleteTodo={deleteTodo} toggle={toggle}/>
+          <TodoItems 
+            key={index} 
+            text={item.text} 
+            id={item.id}
+            isComplete={item.isComplete} 
+            deleteTodo={deleteTodo} 
+            toggle={toggle}
+          />
         )
 
       })}
