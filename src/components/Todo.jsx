@@ -57,7 +57,7 @@ const Todo = () => {
   
   return (
     <>
-    <div className="backdrop-blur-2xl shadow-md bg-slate-500/30 place-self-center w-11/12 flex flex-col max-w-md p-7 min-h-[550px] rounded-xl">
+    <div className="backdrop-blur-2xl shadow-md bg-slate-500/30 place-self-center w-11/12 flex flex-col max-w-md p-7 min-h-[550px] rounded-xl md:max-w-lg lg:max-w-xl">
 
     <div className='flex items-center gap-2'>
       <div className='w-3 h-3 bg-[#FF605C] rounded-full'></div>
