@@ -12,16 +12,16 @@ const TodoItems = ({text, id, isComplete, deleteTodo, toggle}) => {
     <>
     <div className="flex flex-wrap items-center gap-2 my-3">
         <div onClick={()=>{toggle(id)}} className='flex items-center flex-1 cursor-pointer'>
-            <img className='w-7' src={isComplete ? check : recordButton} alt="" />
+            <img className='w-7 sm:w-6 md:w-8' src={isComplete ? check : recordButton} alt="" />
             <p className={`text-slate-200 ml-4 text[17px] decoration-slate-900 ${isComplete ? "line-through text-slate-400" : ""}`}>
                 {text}  
             </p>
             
            
         </div>
-        <img className='w-5' src={edit} alt="" />
+        <img className='w-5 sm:w-4 md:w-6' src={edit} alt="" />
 
-        <img onClick={()=>{deleteTodo(id)}} className='w-5' src={trash} alt="" />
+        <img onClick={()=>{deleteTodo(id)}} className='w-5 sm:w-4 md:w-6' src={trash} alt="" />
       
     </div>
     <hr className='my-4 border-t-2 border-gray-500' />

@@ -68,7 +68,7 @@ const Todo = () => {
     {/* ----- title ----- */}
 
       <div className="flex items-center justify-center gap-2 mt-5">
-        <img className='w-9' src={calendar} alt="" />
+        <img className='w-9 sm:w-8 md:w-10' src={calendar} alt="" />
         <h1 className="text-3xl font-semibold text-gray-300">To-Do List</h1>
       </div>
 
