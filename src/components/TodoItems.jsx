@@ -3,6 +3,7 @@ import check from '../assets/check.png';
 import recordButton from '../assets/recordButton.png';
 import trash from '../assets/trash.png';
 import PropTypes from 'prop-types';
+import edit from '../assets/edit.png';
 
 
 const TodoItems = ({text, id, isComplete, deleteTodo, toggle}) => {
@@ -18,6 +19,7 @@ const TodoItems = ({text, id, isComplete, deleteTodo, toggle}) => {
             
            
         </div>
+        <img className='w-5' src={edit} alt="" />
 
         <img onClick={()=>{deleteTodo(id)}} className='w-5' src={trash} alt="" />
       
