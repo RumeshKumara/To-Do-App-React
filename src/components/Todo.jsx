@@ -74,12 +74,12 @@ const Todo = () => {
 
     {/* ----- input box ----- */}
 
-      <div className='flex items-center my-6 bg-gray-200 border-2 border-blue-600 border-solid rounded-xl '>
-        <input ref={inputRef} className='flex-1 pl-16 pr-2 bg-transparent outline-none rounded-xl h-14 placeholder:text-slate-600' type="text" placeholder='Add your text' />
-        <button onClick={add} className='w-32 text-lg font-medium text-white bg-blue-600 border-none rounded-full cursor-pointer h-14'>ADD +</button>
+      <div className='flex items-center my-6 border-0 border-solid backdrop-blur-2xl bg-slate-500/30 rounded-2xl '>
+        <input ref={inputRef} className='flex-1 pl-8 pr-2 text-white bg-transparent outline-none rounded-xl h-14 placeholder:text-slate-400' type="text" placeholder='Add your text' />
+        <button onClick={add} className='w-24 h-10 mr-2 text-lg font-medium text-gray-100 bg-blue-600 border-none cursor-pointer rounded-xl'>ADD +</button>
       </div>
       <div className='flex items-center justify-between pb-2'>
-      <p className="text-sm font-semibold text-center text-sky-500">Total Tasks: <span className='px-3 py-1 rounded-full text-sky-400 bg-slate-700'>{todoList.length}</span></p>
+      <p className="text-sm font-semibold text-center text-sky-500">Total Tasks: <span className='px-3 py-1 rounded-full text-sky-500 bg-slate-700'>{todoList.length}</span></p>
       <p className="font-sans text-sm font-semibold text-center text-green-500">Completed Tasks: <span className="px-3 py-1 text-green-500 rounded-full bg-slate-700">{completedCount}</span></p>
       </div>
 
