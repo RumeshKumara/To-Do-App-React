@@ -49,6 +49,18 @@ const Todo = () => {
       })
     })
   }
+
+  const updateTodo = (id, updatedText) => {
+    setTodoList((prvTodos) => {
+      return prvTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, text: updatedText };
+        }
+        return todo;
+      });
+    });
+  };
+
   const completedCount = todoList.filter((todo) => todo.isComplete).length;
 
   useEffect(()=>{
@@ -96,6 +108,7 @@ const Todo = () => {
             isComplete={item.isComplete} 
             deleteTodo={deleteTodo} 
             toggle={toggle}
+            updateTodo={updateTodo}
           />
         )
 
